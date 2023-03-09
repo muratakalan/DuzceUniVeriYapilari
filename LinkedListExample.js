@@ -116,20 +116,24 @@ function main() {
       console.log("Enter the data of the node you want to delete:");
       const valueToDelete = prompt();
       list.removeData(valueToDelete);
+      console.log("...........................................................");
       list.print();
       break;
 
     case 'b':
+      console.log("...........................................................");
       console.log(list.length);
       break;
 
     case 'c':
+      console.log("...........................................................");
       list.reversePrint();
       break;
 
     case 'd':
       console.log("Enter the Node to be searched:");
       const DataToSearch = prompt();
+      console.log("...........................................................");
       list.search(DataToSearch);
       break;
 
