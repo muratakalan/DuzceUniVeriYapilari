@@ -57,15 +57,15 @@ class LinkedList {
     }
   }
 
-  removeData(deleteData) {
-    if (this.root !== null && this.root.data === deleteData) {
+  removeData(ValueToBeDeleted) {
+    if (this.root !== null && this.root.data === ValueToBeDeleted) {
       this.root = this.root.next;
       this.length--;
       return this;
     }
 
     let iter = this.root;
-    while (iter.next !== null && iter.next.data !== deleteData) {
+    while (iter.next !== null && iter.next.data !== ValueToBeDeleted) {
       iter = iter.next;
     }
 
@@ -96,24 +96,24 @@ class LinkedList {
 
 function main() {
   const list = new LinkedList();
-  console.log("Hoşgeldiniz, kaç adet veri girmek istediğinizi giriniz:");
+  console.log("Welcome, enter how many Node you want to add:");
   const nodeCount = parseInt(prompt());
 
   for (let i = 1; i <= nodeCount; i++) {
-    console.log(i + ". Değeri giriniz:");
+    console.log("Enter the "+ i +". data:");
     const value = prompt();
     list.addData(value);
   }
 
   console.log("...........................................................");
-  console.log("a -> veri sil\nb -> eleman sayısını gör\nc -> listeyi tersten yazdır\nd -> verinin indis değerini gör\n");
-  console.log("Yapmak istediğiniz işlemi yazınız...");
+  console.log("a -> Delete Node\nb -> See number of Nodes\nc -> Print the list in reverse\nd -> See the index value of the Node\n");
+  console.log("Enter the letter for the action you want to do");
 
   const choice = prompt();
 
   switch (choice) {
     case 'a':
-      console.log("Silmek istediğiniz verinin değerini giriniz:");
+      console.log("Enter the data of the node you want to delete:");
       const valueToDelete = prompt();
       list.removeData(valueToDelete);
       list.print();
@@ -128,13 +128,13 @@ function main() {
       break;
 
     case 'd':
-      console.log("Aranacak veriyi giriniz:");
-      const arananDeger = prompt();
-      list.search(arananDeger);
+      console.log("Enter the Node to be searched:");
+      const DataToSearch = prompt();
+      list.search(DataToSearch);
       break;
 
     default:
-      console.log("Yanlış seçim. Programdan çıkılıyor.");
+      console.log("Wrong selection, program closing...");
       break;
   }
 }
